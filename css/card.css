@@ -1,0 +1,48 @@
+.card-container{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    width: 100%;
+    height: 70px;
+    align-items: center;
+    background: #eeeeee;
+    border-bottom: 2px solid #696969;
+}
+
+.card-detail {
+    width: 80%;
+}
+
+.asset-name {
+    margin-left: 15px;
+    font-size: 24px;
+}
+
+.button-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    width: 19%;
+    margin-right: 1%;
+    height: 40px;
+}
+
+.card-button {
+    width: 30%;
+    height: 40px;
+}
+
+.view-icon {
+    font-size: 21px;
+    color: #2E8B57;	
+}
+
+.edit-icon {
+    font-size: 19px;
+    color: #FF8C00;	
+}
+
+.delete-icon {
+    font-size: 19px;
+    color: #000080;	
+}

@@ -1,0 +1,187 @@
+body {
+    font-family: 'Titillium Web', sans-serif;
+    background: #d7d9db;
+}
+
+.app-container {
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    border: 1px;
+}
+
+.app-banner {
+    width: 100%;
+    height: 100%;
+}
+
+.app-detail-container {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    width: 100%;
+    height: 100%;
+    margin-top: 85px;
+}
+
+.table-container {
+    width: 70%;
+    height: 95%;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+}
+
+.table-box-wrapper {
+    width: 95%;
+    height: 100%;
+    background: #a5aab0;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    border: 1px solid #000000;
+}
+
+.tab-box-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 50px;
+    border-bottom: 1px solid #000000;
+}
+
+.tab-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 15%;
+    height: 50px;
+    border-right: 1px solid #000000;
+}
+
+.side-tab-container {
+    width: 30%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.search-box-container {
+    width: 95%;
+    height: 45%;
+    background: #a5aab0;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    border: 1px solid #000000;
+}
+
+.search-box-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.search-header-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 15%;
+    background: #00004c;
+    border: 1px solid #000000;
+}
+
+.search-input-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.search-icon {
+    font-size: 28px;
+    color: #ffffff;
+    margin-left: 10px;
+}
+
+.search-input {
+    width: 93%;
+    height: 20px;
+    font-size: 20px;
+    margin-left: 10px;
+    margin-top: 10px;
+}
+
+.search-header {
+    font-size: 28px;
+    color: #ffffff;    
+    margin-left: 10px;
+}
+
+.search-topic-header {
+    font-size: 22px;
+    margin-left: 10px;
+}
+
+.search-topic-icon {
+    font-size: 20px;
+}
+
+.filter-box-wrapper {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+}
+
+.filter-header-text {
+    font-size: 22px;
+    margin-top: 10px;
+    margin-left: 10px;
+}
+
+.filter-box-set {
+    display: flex;
+    flex-direction: column;
+    width: 94%;
+    height: 80%;
+    margin-top: 10px;
+    margin-left: 10px;
+    background: #eeeeee;
+    border: 2px solid #696969;
+    border-radius: 5px;
+}
+
+.filter-box-container {
+    width: 95%;
+    height: 45%;
+    background: #a5aab0;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    border: 1px solid #000000;
+    margin-top: 29px;
+}
+
+.filter-box-group {
+    width: 90%;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    margin-left: 10px;
+}
+
+input[type=checkbox] {
+    transform: scale(1.5);
+}
+
+.filter-box {
+    font-size: 18px;
+    width: 50%;
+}
