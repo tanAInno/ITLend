@@ -1,0 +1,4 @@
+export const SET_ADD_MODAL = 'SET_ADD_MODAL';
+export const SET_VIEW_MODAL = 'SET_VIEW_MODAL';
+export const SET_EDIT_MODAL = 'SET_EDIT_MODAL';
+export const SET_DELETE_MODAL = 'SET_DELETE_MODAL';

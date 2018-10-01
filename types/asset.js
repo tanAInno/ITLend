@@ -1,0 +1,4 @@
+export const SET_ASSET_LIST = 'SET_ASSET_LIST';
+export const SET_AVAI_LIST = 'SET_AVAI_LIST';
+export const SET_LOAN_LIST = 'SET_LOAN_LIST';
+export const SET_PERM_ASSET_LIST = 'SET_PERM_ASSET_LIST';

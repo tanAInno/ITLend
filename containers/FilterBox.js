@@ -7,7 +7,10 @@ class FilterBox extends Component {
     render(){
         return(
             <div className="filter-box-wrapper">
-                <div className="filter-header-text">Filter</div>
+                <div className="filter-header-wrapper">
+                    <FontAwesomeIcon icon="filter" className="filter-icon"/>
+                    <div className="filter-header-text">Filter</div>
+                </div>
                     <div className="filter-box-set">
                         <div className="filter-box-group">
                             <div className="filter-box">
@@ -48,6 +51,9 @@ class FilterBox extends Component {
                             <div className="filter-box">
                                 <label><input type="checkbox"/>  iCloud</label>
                             </div>
+                        </div>
+                        <div className="filter-button-wrapper">
+                            <button className="filter-button">Go!</button>
                         </div>
                     </div>
             </div>

@@ -4,7 +4,7 @@ var path = require('path');
 var parentDir = path.join(__dirname, '../');
 
 const ENV = process.env.ENV = process.env.NODE_ENV = 'development';
-const HOST = process.env.HOST || '192.168.26.66';
+const HOST = process.env.HOST || '192.168.26.178';
 const PORT = process.env.PORT || 4000;
 
 const METADATA = Object.assign({}, {

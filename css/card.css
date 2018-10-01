@@ -10,26 +10,95 @@
 }
 
 .card-detail {
-    width: 80%;
+    width: 85%;
+}
+
+.card-detail-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
 }
 
 .asset-name {
     margin-left: 15px;
-    font-size: 24px;
+    width: 25%;
+    font-size: 18px;
+}
+
+.asset-status-avai {
+    width: 19%;
+    font-size: 18px;
+    color: #32CD32;	
+}
+
+.asset-status-loan {
+    width: 19%;
+    font-size: 18px;
+    color: #DC143C;	
+}
+
+.asset-os {
+    width: 20%;
+    font-size: 18px;
+}
+
+.asset-loaner {
+    width: 38%;
+    font-size: 18px;
 }
 
 .button-container {
     display: flex;
     flex: 1;
     flex-direction: row;
-    width: 19%;
-    margin-right: 1%;
+    width: 15%;
+    margin-right: 2px;
     height: 40px;
 }
 
 .card-button {
     width: 30%;
     height: 40px;
+}
+
+.lend-button {
+    width: 30%;
+    height: 37px;
+    background: #00007f;
+    border: 2px solid #00004c;
+    color: white;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.loaner-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 100%;
+}
+
+.loaner-text {
+    font-size: 18px;
+}
+
+.return-button {
+    width: 25%;
+    margin-left: 5%;
+    height: 30px;
+    background: #00007f;
+    border: 2px solid #00004c;
+    color: white;
+    border-radius: 5px;
+    font-size: 15px;
+    margin-right: 2%;
+}
+
+.asset-icon {
+    font-size: 24px;
+    color: #00007f;
+    margin-left: 15px;
 }
 
 .view-icon {
@@ -45,4 +114,36 @@
 .delete-icon {
     font-size: 19px;
     color: #000080;	
+}
+
+.modal-sub-title {
+    margin-top: -8px;
+}
+
+.modal-detail {
+    margin-top: -5px;
+    margin-bottom: 15px;
+}
+
+.modal-button-wrapper {
+    float: right;
+    width: 40%;
+}
+
+.modal-confirm-button {
+    width: 50%;
+    height: 25px;
+    background: #00007f;
+    border: 2px solid #00004c;
+    color: white;
+    border-radius: 5px;
+}
+
+.modal-cancel-button {
+    width: 50%;
+    height: 25px;
+    background: #660000;
+    border: 2px solid #330000;
+    color: white;
+    border-radius: 5px;
 }

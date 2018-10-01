@@ -7,9 +7,13 @@ import SearchBox from '../containers/SearchBox'
 import FilterBox from '../containers/FilterBox'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSearch, faEye, faEdit, faTrashAlt, faLaptop, faAppleAlt, faUserAlt } from '@fortawesome/free-solid-svg-icons'
+import { faSearch, faEye, faEdit, faTrashAlt, faLaptop, 
+    faAppleAlt, faUserAlt, faFilter, faDesktop, faPlus, faPlusCircle,
+    faTags, faMemory, faHdd, faSignature, faHandshake, faFolder } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faSearch,faEye,faEdit,faTrashAlt,faLaptop,faAppleAlt,faUserAlt)
+library.add(faSearch,faEye,faEdit,faTrashAlt,faLaptop,
+    faAppleAlt,faUserAlt,faFilter,faDesktop,faPlus,faPlusCircle,faTags,
+    faMemory, faHdd, faSignature, faHandshake, faFolder)
 
 class App extends Component {
     render () {
