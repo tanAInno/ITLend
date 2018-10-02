@@ -22,6 +22,11 @@ class LendModal extends Component {
                 brand: this.props.brand,
                 ram: this.props.ram,
                 harddisk: this.props.harddisk,
+                processor: this.props.processor,
+                serial: this.props.serial,
+                mac_wifi: this.props.mac_wifi,
+                mac_lan: this.props.mac_lan,
+                warranty: this.props.warranty,
                 status: "On Loan",
                 loaner: this.state.loaner
             }).catch(error => console.log(error))
@@ -42,7 +47,7 @@ class LendModal extends Component {
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="apple-alt" className="view-modal-topic-icon"/>
-                    <div className="view-modal-topic-text" style={{marginLeft: '17px'}}> OS : {this.props.os}</div>
+                    <div className="view-modal-topic-text" style={{marginLeft: '17px'}}> OS : {this.props.os} ({this.props.serial})</div>
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="tags" className="view-modal-topic-icon"/>
@@ -55,6 +60,22 @@ class LendModal extends Component {
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="hdd" className="view-modal-topic-icon"/>
                     <div className="view-modal-topic-text" style={{marginLeft: '12px'}}> Hard Disk : {this.props.harddisk}</div>
+                </div>
+                <div className="view-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="microchip" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Processor : {this.props.processor}</div>
+                </div>
+                <div className="view-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="wifi" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Wifi Mac-Address : {this.props.mac_wifi}</div>
+                </div>
+                <div className="view-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="home" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Lan Mac-Address : {this.props.mac_lan}</div>
+                </div>
+                <div className="view-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="shield-alt" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Warranty : {this.props.warranty}</div>
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="folder" className="view-modal-topic-icon" style={{marginLeft: '10px'}}/>

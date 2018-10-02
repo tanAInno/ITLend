@@ -13,7 +13,12 @@ class AddModal extends Component {
         os : '',
         brand : '',
         ram : '',
-        harddisk : ''
+        harddisk : '',
+        processor : '',
+        serial : '',
+        mac_wifi : '',
+        mac_lan : '',
+        warranty : ''
     }
 
     closeModal(){
@@ -31,6 +36,16 @@ class AddModal extends Component {
             this.setState({ram : e.target.value})
         if(key == "harddisk")
             this.setState({harddisk : e.target.value})
+        if(key == "processor")
+            this.setState({processor : e.target.value})
+        if(key == "serial")
+            this.setState({serial : e.target.value})
+        if(key == "mac_wifi")
+            this.setState({mac_wifi : e.target.value})
+        if(key == "mac_lan")
+            this.setState({mac_lan : e.target.value})
+        if(key == "warranty")
+            this.setState({warranty : e.target.value})
     }
 
     async addAsset(){
@@ -40,6 +55,11 @@ class AddModal extends Component {
             brand: this.state.brand,
             ram: this.state.ram,
             harddisk: this.state.harddisk,
+            processor: this.state.processor,
+            serial: this.state.serial,
+            mac_wifi: this.state.mac_wifi,
+            mac_lan: this.state.mac_lan,
+            warranty: this.state.warranty,
             status: "Available"
         }).catch(error => console.log(error))
         location.reload()
@@ -52,16 +72,18 @@ class AddModal extends Component {
                     <FontAwesomeIcon icon="plus-circle" className="add-modal-icon"/>
                     <div className="add-modal-header">Add Asset</div>
                 </div>
-                <div className="add-modal-topic-wrapper">
-                    <FontAwesomeIcon icon="laptop" className="add-modal-topic-icon"/>
-                    <div className="add-modal-topic-text"> Asset Name</div>
-                </div>
-                <input type="text" 
-                    className="add-modal-input"
-                    value={this.state.name}
-                    onChange={e => this.handleChangeWithKey("name",e)}/>
                 <div className="add-modal-input-group">
                     <div className="add-modal-input-wrapper">
+                        <div className="add-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="laptop" className="add-modal-topic-icon"/>
+                            <div className="add-modal-topic-text"> Asset Name</div>
+                        </div>
+                        <input type="text" 
+                            className="add-modal-input-half"
+                            value={this.state.name}
+                            onChange={e => this.handleChangeWithKey("name",e)}/>
+                    </div>
+                    <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
                         <div className="add-modal-topic-wrapper">
                             <FontAwesomeIcon icon="apple-alt" className="add-modal-topic-icon"/>
                             <div className="add-modal-topic-text"> OS</div>
@@ -71,7 +93,9 @@ class AddModal extends Component {
                             value={this.state.os}
                             onChange={e => this.handleChangeWithKey("os",e)}/>
                     </div>
-                    <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
+                </div>
+                <div className="add-modal-input-group">
+                    <div className="add-modal-input-wrapper">
                         <div className="add-modal-topic-wrapper">
                             <FontAwesomeIcon icon="tags" className="add-modal-topic-icon"/>
                             <div className="add-modal-topic-text"> Brand</div>
@@ -80,6 +104,16 @@ class AddModal extends Component {
                             className="add-modal-input-half"
                             value={this.state.brand}
                             onChange={e => this.handleChangeWithKey("brand",e)}/>
+                    </div>
+                    <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
+                        <div className="add-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="microchip" className="add-modal-topic-icon"/>
+                            <div className="add-modal-topic-text"> Processor</div>
+                        </div>
+                        <input type="text" 
+                            className="add-modal-input-half"
+                            value={this.state.processor}
+                            onChange={e => this.handleChangeWithKey("processor",e)}/>
                     </div>
                 </div>
                 <div className="add-modal-input-group">
@@ -102,6 +136,50 @@ class AddModal extends Component {
                             className="add-modal-input-half"
                             value={this.state.harddisk}
                             onChange={e => this.handleChangeWithKey("harddisk",e)}/>
+                    </div>
+                </div>
+                <div className="add-modal-input-group">
+                    <div className="add-modal-input-wrapper">
+                        <div className="add-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="wifi" className="add-modal-topic-icon"/>
+                            <div className="add-modal-topic-text"> Wifi-Mac-Address</div>
+                        </div>
+                        <input type="text" 
+                            className="add-modal-input-half"
+                            value={this.state.mac_wifi}
+                            onChange={e => this.handleChangeWithKey("mac_wifi",e)}/>
+                    </div>
+                    <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
+                        <div className="add-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="home" className="add-modal-topic-icon"/>
+                            <div className="add-modal-topic-text"> Lan-Mac-Address</div>
+                        </div>
+                        <input type="text" 
+                            className="add-modal-input-half"
+                            value={this.state.mac_lan}
+                            onChange={e => this.handleChangeWithKey("mac_lan",e)}/>
+                    </div>
+                </div>
+                <div className="add-modal-input-group">
+                    <div className="add-modal-input-wrapper">
+                        <div className="add-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="barcode" className="add-modal-topic-icon"/>
+                            <div className="add-modal-topic-text"> OS Serial Number</div>
+                        </div>
+                        <input type="text" 
+                            className="add-modal-input-half"
+                            value={this.state.serial}
+                            onChange={e => this.handleChangeWithKey("serial",e)}/>
+                    </div>
+                    <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
+                        <div className="add-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="shield-alt" className="add-modal-topic-icon"/>
+                            <div className="add-modal-topic-text"> Warranty</div>
+                        </div>
+                        <input type="text" 
+                            className="add-modal-input-half"
+                            value={this.state.warranty}
+                            onChange={e => this.handleChangeWithKey("warranty",e)}/>
                     </div>
                 </div>
                 <div className="add-modal-filter-box-wrapper">

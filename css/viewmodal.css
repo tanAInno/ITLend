@@ -37,24 +37,24 @@
 }
 
 .view-modal-topic-icon {
-    font-size: 22px;
+    font-size: 18px;
     margin-left: 10px;
     color: #00004c;
 }
 
 .view-modal-topic-text {
-    font-size: 22px;
+    font-size: 18px;
     margin-left: 10px;
 }
 
 .view-modal-topic-text-avai {
-    font-size: 22px;
+    font-size: 18px;
     margin-left: 10px;
     color: #32CD32;	
 }
 
 .view-modal-topic-text-loan {
-    font-size: 22px;
+    font-size: 18px;
     margin-left: 10px;
     color: #DC143C;	
 }

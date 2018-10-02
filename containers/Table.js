@@ -53,6 +53,11 @@ class Table extends Component {
                     ram: c.ram,
                     harddisk: c.harddisk,
                     programs: c.programs,
+                    processor: c.processor,
+                    serial: c.serial,
+                    mac_wifi: c.mac_wifi,
+                    mac_lan: c.mac_lan,
+                    warranty: c.warranty
                 })
             })
             this.props.dispatch(setPermaAssetList(asset_list))
@@ -93,36 +98,38 @@ class Table extends Component {
         return(
             <Tabs className="table-box-wrapper"
                 activeLinkStyle={{backgroundColor: '#249abd'}}>
-                <div className="tab-box-container" >
-                    <TabLink className="tab-container" to="all">
-                        All  
-                    </TabLink>
-                    <TabLink className="tab-container" to="avai">
-                        Available
-                    </TabLink>
-                    <TabLink className="tab-container" to="loan">
-                        On Loan
-                    </TabLink>
-                    <div className="tab-menu-bar"></div>
-                    <button className="add-button" onClick={this.openAddModal}>
-                        <FontAwesomeIcon icon="plus" className="add-icon"/>
-                    </button>
-                    <Modal
-                    isOpen={this.props.modalReducer.addModalOpen}
-                    onAfterOpen={this.afterOpenAddModal}
-                    onRequestClose={this.closeAddModal}
-                    style={customStyles}
-                    contentLabel="Add Asset"
-                    >
-                        <AddModal/>
-                    </Modal>
-                </div>
-                <div className="table-header-container">
-                    <FontAwesomeIcon icon="desktop" className="table-header-icon"/>
-                    <div className="table-header-name">Name</div>
-                    <div className="table-header-status">Status</div>
-                    <div className="table-header-os">OS</div>
-                    <div className="table-header-loaner">Loaner</div>
+                <div className="table-box-header-container">
+                    <div className="tab-box-container" >
+                        <TabLink className="tab-container" to="all">
+                            All  
+                        </TabLink>
+                        <TabLink className="tab-container" to="avai">
+                            Available
+                        </TabLink>
+                        <TabLink className="tab-container" to="loan">
+                            On Loan
+                        </TabLink>
+                        <div className="tab-menu-bar"></div>
+                        <button className="add-button" onClick={this.openAddModal}>
+                            <FontAwesomeIcon icon="plus" className="add-icon"/>
+                        </button>
+                        <Modal
+                        isOpen={this.props.modalReducer.addModalOpen}
+                        onAfterOpen={this.afterOpenAddModal}
+                        onRequestClose={this.closeAddModal}
+                        style={customStyles}
+                        contentLabel="Add Asset"
+                        >
+                            <AddModal/>
+                        </Modal>
+                    </div>
+                    <div className="table-header-container">
+                        <FontAwesomeIcon icon="desktop" className="table-header-icon"/>
+                        <div className="table-header-name">Name</div>
+                        <div className="table-header-status">Status</div>
+                        <div className="table-header-os">OS</div>
+                        <div className="table-header-loaner">Loaner</div>
+                    </div>
                 </div>
                 <TabContent for="all">
                     {this.props.assetReducer.asset_list.map((data,index) => {
@@ -136,6 +143,11 @@ class Table extends Component {
                                 ram={data.ram}
                                 brand={data.brand}
                                 harddisk={data.harddisk}
+                                processor={data.processor}
+                                serial={data.serial}
+                                mac_wifi={data.mac_wifi}
+                                mac_lan={data.mac_lan}
+                                warranty={data.warranty}
                             />
                         )
                     })}
@@ -152,6 +164,11 @@ class Table extends Component {
                                 ram={data.ram}
                                 brand={data.brand}
                                 harddisk={data.harddisk}
+                                processor={data.processor}
+                                serial={data.serial}
+                                mac_wifi={data.mac_wifi}
+                                mac_lan={data.mac_lan}
+                                warranty={data.warranty}
                             />
                         )
                     })}
@@ -168,6 +185,11 @@ class Table extends Component {
                                 ram={data.ram}
                                 brand={data.brand}
                                 harddisk={data.harddisk}
+                                processor={data.processor}
+                                serial={data.serial}
+                                mac_wifi={data.mac_wifi}
+                                mac_lan={data.mac_lan}
+                                warranty={data.warranty}
                             />
                         )
                     })}

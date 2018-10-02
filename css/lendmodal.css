@@ -47,13 +47,13 @@
 }
 
 .lend-modal-submit-button {
-    width: 30%;
-    height: 37px;
+    width: 25%;
+    height: 32px;
     background: #00007f;
     border: 2px solid #00004c;
     color: white;
     border-radius: 5px;
     font-size: 18px;
     margin-left: 35%;
-    margin-top: 20px;
+    margin-top: 10px;
 }

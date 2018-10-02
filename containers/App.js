@@ -9,11 +9,13 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faEye, faEdit, faTrashAlt, faLaptop, 
     faAppleAlt, faUserAlt, faFilter, faDesktop, faPlus, faPlusCircle,
-    faTags, faMemory, faHdd, faSignature, faHandshake, faFolder } from '@fortawesome/free-solid-svg-icons'
+    faTags, faMemory, faHdd, faSignature, faHandshake, faFolder, faMicrochip,
+    faWifi, faShieldAlt, faHome, faBarcode } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faSearch,faEye,faEdit,faTrashAlt,faLaptop,
     faAppleAlt,faUserAlt,faFilter,faDesktop,faPlus,faPlusCircle,faTags,
-    faMemory, faHdd, faSignature, faHandshake, faFolder)
+    faMemory, faHdd, faSignature, faHandshake, faFolder, faMicrochip, faWifi,
+    faShieldAlt, faHome, faBarcode)
 
 class App extends Component {
     render () {

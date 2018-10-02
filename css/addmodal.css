@@ -3,7 +3,7 @@
     flex: 1;
     flex-direction: column;
     width: 500px;
-    height: 550px;
+    height: 600px;
     border: 1px solid #000000;
 }
 
@@ -33,7 +33,7 @@
     display: flex;
     flex-direction: row;
     margin-top: 10px;
-    width: 50%;
+    width: 100%;
 }
 
 .add-modal-input-group {
@@ -45,34 +45,26 @@
 .add-modal-input-wrapper {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
 }
 
 .add-modal-topic-icon {
-    font-size: 22px;
+    font-size: 18px;
     margin-left: 10px;
     color: #00004c;
 }
 
 .add-modal-topic-text {
-    font-size: 22px;
-    margin-left: 10px;
-}
-
-.add-modal-input {
-    font-size: 22px;
-    margin-left: 10px;
-    margin-top: 7px;
-    width: 95%;
-    height: 22px;
+    font-size: 18px;
+    margin-left: 5px;
 }
 
 .add-modal-input-half {
-    font-size: 22px;
+    font-size: 18px;
     margin-left: 10px;
     margin-top: 7px;
     width: 100%;
-    height: 22px;
+    height: 18px;
 }
 
 .add-modal-filter-box-wrapper {
@@ -80,7 +72,7 @@
     flex-direction: row;
     justify-content: center;
     width: 100%;
-    height: 31%;
+    height: 32%;
     margin-top: 10px;
 }
 

@@ -179,6 +179,11 @@ class Card extends Component {
                                     ram={this.props.ram}
                                     brand={this.props.brand}
                                     harddisk={this.props.harddisk}
+                                    processor={this.props.processor}
+                                    serial={this.props.serial}
+                                    mac_wifi={this.props.mac_wifi}
+                                    mac_lan={this.props.mac_lan}
+                                    warranty={this.props.warranty}
                                 />
                         </Modal>
                         <Modal
@@ -210,13 +215,18 @@ class Card extends Component {
                     contentLabel="View Asset"
                     >
                         <ViewModal
-                            assetName={this.props.name}
-                            assetOs={this.props.os}
-                            assetStatus={this.props.status}
-                            assetLoaner={this.props.loaner}
-                            assetRam={this.props.ram}
-                            assetBrand={this.props.brand}
-                            assetHarddisk={this.props.harddisk}
+                            name={this.props.name}
+                            os={this.props.os}
+                            status={this.props.status}
+                            loaner={this.props.loaner}
+                            ram={this.props.ram}
+                            brand={this.props.brand}
+                            harddisk={this.props.harddisk}
+                            processor={this.props.processor}
+                            serial={this.props.serial}
+                            mac_wifi={this.props.mac_wifi}
+                            mac_lan={this.props.mac_lan}
+                            warranty={this.props.warranty}
                         />
                     </Modal>
                     <button className="card-button" onClick={this.openEditModal}>
@@ -230,14 +240,16 @@ class Card extends Component {
                     contentLabel="Edit Asset"
                     >
                         <EditModal
-                            id={this.props.id}
                             name={this.props.name}
-                            status={this.props.status}
                             os={this.props.os}
                             ram={this.props.ram}
                             brand={this.props.brand}
                             harddisk={this.props.harddisk}
-                            loaner={this.props.loaner}
+                            processor={this.props.processor}
+                            serial={this.props.serial}
+                            mac_wifi={this.props.mac_wifi}
+                            mac_lan={this.props.mac_lan}
+                            warranty={this.props.warranty}
                         />
                     </Modal>
                     <button className="card-button" onClick={this.openDeleteModal}>
