@@ -62,8 +62,12 @@ class ViewModal extends Component {
                     <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Warranty : {this.props.warranty}</div>
                 </div>
                 <div className="view-modal-topic-wrapper">
-                    <FontAwesomeIcon icon="folder" className="view-modal-topic-icon" style={{marginLeft: '12px'}}/>
-                    <div className="view-modal-topic-text" style={{marginLeft: '15px'}}> Programs : </div>
+                    <FontAwesomeIcon icon="tags" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Service Tag : {this.props.service_tag}</div>
+                </div>
+                <div className="view-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="envelope" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Email : {this.props.email}</div>
                 </div>
             </div>
         )

@@ -10,12 +10,12 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faSearch, faEye, faEdit, faTrashAlt, faLaptop, 
     faAppleAlt, faUserAlt, faFilter, faDesktop, faPlus, faPlusCircle,
     faTags, faMemory, faHdd, faSignature, faHandshake, faFolder, faMicrochip,
-    faWifi, faShieldAlt, faHome, faBarcode } from '@fortawesome/free-solid-svg-icons'
+    faWifi, faShieldAlt, faHome, faBarcode, faEnvelope } from '@fortawesome/free-solid-svg-icons'
 
 library.add(faSearch,faEye,faEdit,faTrashAlt,faLaptop,
     faAppleAlt,faUserAlt,faFilter,faDesktop,faPlus,faPlusCircle,faTags,
     faMemory, faHdd, faSignature, faHandshake, faFolder, faMicrochip, faWifi,
-    faShieldAlt, faHome, faBarcode)
+    faShieldAlt, faHome, faBarcode, faEnvelope)
 
 class App extends Component {
     render () {

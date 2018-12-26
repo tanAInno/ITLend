@@ -18,11 +18,18 @@ class AddModal extends Component {
         serial : '',
         mac_wifi : '',
         mac_lan : '',
-        warranty : ''
+        warranty : '',
+        service_tag : '',
+        email : '',
+        loaner : ''
     }
 
     closeModal(){
         this.props.dispatch(setAddModal(false))
+    }
+
+    _onChange(e){
+        this.setState({loaner : e.target.value})
     }
 
     handleChangeWithKey = (key,e) => {
@@ -46,9 +53,19 @@ class AddModal extends Component {
             this.setState({mac_lan : e.target.value})
         if(key == "warranty")
             this.setState({warranty : e.target.value})
+        if(key == "service_tag")
+            this.setState({service_tag : e.target.value})
+        if(key == "email")
+            this.setState({email : e.target.value})
+
     }
 
     async addAsset(){
+        let assetStatus = ""
+        if(this.state.loaner == "")
+            assetStatus = "Available"
+        else
+            assetStatus = "On Loan"
         await axios.post(route+"assets/",{
             name: this.state.name,
             os: this.state.os,
@@ -60,7 +77,10 @@ class AddModal extends Component {
             mac_wifi: this.state.mac_wifi,
             mac_lan: this.state.mac_lan,
             warranty: this.state.warranty,
-            status: "Available"
+            service_tag: this.state.service_tag,
+            email: this.state.email,
+            status: assetStatus,
+            loaner: this.state.loaner
         }).catch(error => console.log(error))
         location.reload()
     }
@@ -182,50 +202,36 @@ class AddModal extends Component {
                             onChange={e => this.handleChangeWithKey("warranty",e)}/>
                     </div>
                 </div>
-                <div className="add-modal-filter-box-wrapper">
-                    <div className="add-modal-filter-box-set">
-                        <div className="filter-box-group">
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Acrobat</label>
-                            </div>
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Office365</label>
-                            </div>
+                <div className="add-modal-input-group">
+                    <div className="add-modal-input-wrapper">
+                        <div className="add-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="tags" className="add-modal-topic-icon"/>
+                            <div className="add-modal-topic-text"> Service Tag</div>
                         </div>
-                        <div className="filter-box-group">
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Autocad</label>
-                            </div>
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Nod32</label>
-                            </div>
+                        <input type="text" 
+                            className="add-modal-input-half"
+                            value={this.state.service_tag}
+                            onChange={e => this.handleChangeWithKey("service_tag",e)}/>
+                    </div>
+                    <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
+                        <div className="add-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="envelope" className="add-modal-topic-icon"/>
+                            <div className="add-modal-topic-text"> Email</div>
                         </div>
-                        <div className="filter-box-group">
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  PDF Creator</label>
-                            </div>
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Win Zip</label>
-                            </div>
-                        </div>
-                        <div className="filter-box-group">
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Printer Driver</label>
-                            </div>
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Photoshop</label>
-                            </div>
-                        </div>
-                        <div className="filter-box-group">
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Team Viewer</label>
-                            </div>
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  iCloud</label>
-                            </div>
-                        </div>
+                        <input type="text" 
+                            className="add-modal-input-half"
+                            value={this.state.email}
+                            onChange={e => this.handleChangeWithKey("email",e)}/>
                     </div>
                 </div>
+                <div className="lend-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="user-alt" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Loaner Name </div>
+                </div>
+                <input type="text" 
+                    className="lend-modal-input"
+                    value={this.state.loaner}
+                    onChange={e => this._onChange(e)}/>
                 <div className="add-modal-button-group">
                     <button className="add-modal-add-button" onClick={() => this.addAsset()}>Add</button>
                     <button className="add-modal-cancel-button" onClick={() => this.closeModal()}>Cancel</button>

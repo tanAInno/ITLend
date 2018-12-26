@@ -122,7 +122,14 @@ class Card extends Component {
             ram: this.props.ram,
             harddisk: this.props.harddisk,
             status: "Available",
-            loaner: ""
+            loaner: "",
+            processor: this.props.processor,
+            serial: this.props.serial,
+            mac_wifi: this.props.mac_wifi,
+            mac_lan: this.props.mac_lan,
+            warranty: this.props.warranty,
+            service_tag: this.props.service_tag,
+            email: this.props.email
         }).catch(error => console.log(error))
         location.reload()
     }
@@ -184,6 +191,8 @@ class Card extends Component {
                                     mac_wifi={this.props.mac_wifi}
                                     mac_lan={this.props.mac_lan}
                                     warranty={this.props.warranty}
+                                    service_tag={this.props.service_tag}
+                                    email={this.props.email}
                                 />
                         </Modal>
                         <Modal
@@ -227,6 +236,8 @@ class Card extends Component {
                             mac_wifi={this.props.mac_wifi}
                             mac_lan={this.props.mac_lan}
                             warranty={this.props.warranty}
+                            service_tag={this.props.service_tag}
+                            email={this.props.email}
                         />
                     </Modal>
                     <button className="card-button" onClick={this.openEditModal}>
@@ -250,6 +261,8 @@ class Card extends Component {
                             mac_wifi={this.props.mac_wifi}
                             mac_lan={this.props.mac_lan}
                             warranty={this.props.warranty}
+                            service_tag={this.props.service_tag}
+                            email={this.props.email}
                         />
                     </Modal>
                     <button className="card-button" onClick={this.openDeleteModal}>

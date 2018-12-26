@@ -57,8 +57,21 @@ class Table extends Component {
                     serial: c.serial,
                     mac_wifi: c.mac_wifi,
                     mac_lan: c.mac_lan,
-                    warranty: c.warranty
+                    warranty: c.warranty,
+                    service_tag: c.service_tag,
+                    email: c.email
                 })
+            })
+            asset_list.sort(function(a,b){
+                if(a.status == "Available")
+                    a.indicator = 0
+                if(a.status == "On Loan")
+                    a.indicator = 1
+                if(b.status == "Available")
+                    b.indicator = 0
+                if(b.status == "On Loan")
+                    b.indicator = 1     
+                return a.indicator - b.indicator
             })
             this.props.dispatch(setPermaAssetList(asset_list))
             this.props.dispatch(setAssetList(asset_list))
@@ -148,6 +161,8 @@ class Table extends Component {
                                 mac_wifi={data.mac_wifi}
                                 mac_lan={data.mac_lan}
                                 warranty={data.warranty}
+                                service_tag={data.service_tag}
+                                email={data.email}
                             />
                         )
                     })}
@@ -156,7 +171,7 @@ class Table extends Component {
                     {this.props.assetReducer.avai_list.map((data,index) => {
                         return(
                             <Card
-                                id={data._id}
+                                id={data.id}
                                 name={data.name}
                                 status={data.status}
                                 os={data.os}
@@ -169,6 +184,8 @@ class Table extends Component {
                                 mac_wifi={data.mac_wifi}
                                 mac_lan={data.mac_lan}
                                 warranty={data.warranty}
+                                service_tag={data.service_tag}
+                                email={data.email}
                             />
                         )
                     })}
@@ -177,7 +194,7 @@ class Table extends Component {
                     {this.props.assetReducer.loan_list.map((data,index) => {
                         return(
                             <Card
-                                id={data._id}
+                                id={data.id}
                                 name={data.name}
                                 status={data.status}
                                 os={data.os}
@@ -190,6 +207,8 @@ class Table extends Component {
                                 mac_wifi={data.mac_wifi}
                                 mac_lan={data.mac_lan}
                                 warranty={data.warranty}
+                                service_tag={data.service_tag}
+                                email={data.email}
                             />
                         )
                     })}

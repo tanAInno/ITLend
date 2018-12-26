@@ -16,7 +16,9 @@ class EditModal extends Component {
         serial : this.props.serial,
         mac_wifi : this.props.mac_wifi,
         mac_lan : this.props.mac_lan,
-        warranty : this.props.warranty
+        warranty : this.props.warranty,
+        service_tag : this.props.service_tag,
+        email : this.props.email
     }
 
     handleChangeWithKey = (key,e) => {
@@ -40,6 +42,10 @@ class EditModal extends Component {
             this.setState({mac_lan : e.target.value})
         if(key == "warranty")
             this.setState({warranty : e.target.value})
+        if(key == "service_tag")
+            this.setState({service_tag : e.target.value})
+        if(key == "email")
+            this.setState({email : e.target.value})
     }
 
     async editAsset(){
@@ -52,11 +58,13 @@ class EditModal extends Component {
             harddisk: this.state.harddisk,
             status: this.props.status,
             loaner: this.props.loaner,
-            processor: this.props.processor,
-            serial: this.props.serial,
-            mac_wifi: this.props.mac_wifi,
-            mac_lan: this.props.mac_lan,
-            warranty: this.props.warranty
+            processor: this.state.processor,
+            serial: this.state.serial,
+            mac_wifi: this.state.mac_wifi,
+            mac_lan: this.state.mac_lan,
+            warranty: this.state.warranty,
+            service_tag: this.state.service_tag,
+            email: this.state.email,
         }).catch(error => console.log(error))
         location.reload()
     }
@@ -178,48 +186,26 @@ class EditModal extends Component {
                             onChange={e => this.handleChangeWithKey("warranty",e)}/>
                     </div>
                 </div>
-                <div className="edit-modal-filter-box-wrapper">
-                    <div className="edit-modal-filter-box-set">
-                        <div className="filter-box-group">
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Acrobat</label>
-                            </div>
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Office365</label>
-                            </div>
+                <div className="edit-modal-input-group">
+                    <div className="edit-modal-input-wrapper">
+                        <div className="edit-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="tags" className="edit-modal-topic-icon"/>
+                            <div className="edit-modal-topic-text"> Service Tag</div>
                         </div>
-                        <div className="filter-box-group">
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Autocad</label>
-                            </div>
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Nod32</label>
-                            </div>
+                        <input type="text" 
+                            className="edit-modal-input-half"
+                            value={this.state.service_tag}
+                            onChange={e => this.handleChangeWithKey("service_tag",e)}/>
+                    </div>
+                    <div className="edit-modal-input-wrapper" style={{marginLeft: '3%'}}>
+                        <div className="edit-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="envelope" className="edit-modal-topic-icon"/>
+                            <div className="edit-modal-topic-text"> Email</div>
                         </div>
-                        <div className="filter-box-group">
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  PDF Creator</label>
-                            </div>
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Win Zip</label>
-                            </div>
-                        </div>
-                        <div className="filter-box-group">
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Printer Driver</label>
-                            </div>
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Photoshop</label>
-                            </div>
-                        </div>
-                        <div className="filter-box-group">
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  Team Viewer</label>
-                            </div>
-                            <div className="filter-box">
-                                <label><input type="checkbox"/>  iCloud</label>
-                            </div>
-                        </div>
+                        <input type="text" 
+                            className="edit-modal-input-half"
+                            value={this.state.email}
+                            onChange={e => this.handleChangeWithKey("email",e)}/>
                     </div>
                 </div>
                 <button className="edit-modal-submit-button" onClick={() => this.editAsset()}>Submit</button>
