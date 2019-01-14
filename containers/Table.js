@@ -123,7 +123,7 @@ class Table extends Component {
                             On Loan
                         </TabLink>
                         <div className="tab-menu-bar"></div>
-                        <button className="add-button" onClick={this.openAddModal}>
+                        <button className="add-button" title="Add Asset" onClick={this.openAddModal}>
                             <FontAwesomeIcon icon="plus" className="add-icon"/>
                         </button>
                         <Modal

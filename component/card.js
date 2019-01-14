@@ -213,7 +213,7 @@ class Card extends Component {
                     </div>
                 </div>
                 <div className="button-container">
-                    <button className="card-button" onClick={this.openViewModal}>
+                    <button className="card-button" title="View this asset" onClick={this.openViewModal}>
                         <FontAwesomeIcon icon="eye" className="view-icon"/>
                     </button>
                     <Modal
@@ -240,7 +240,7 @@ class Card extends Component {
                             email={this.props.email}
                         />
                     </Modal>
-                    <button className="card-button" onClick={this.openEditModal}>
+                    <button className="card-button" title="Edit this asset" onClick={this.openEditModal}>
                         <FontAwesomeIcon icon="edit" className="edit-icon"/>
                     </button>
                     <Modal
@@ -265,7 +265,7 @@ class Card extends Component {
                             email={this.props.email}
                         />
                     </Modal>
-                    <button className="card-button" onClick={this.openDeleteModal}>
+                    <button className="card-button" title="Delete this asset" onClick={this.openDeleteModal}>
                         <FontAwesomeIcon icon="trash-alt" className="delete-icon"/>
                     </button>
                     <Modal
