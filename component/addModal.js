@@ -108,6 +108,12 @@ class AddModal extends Component {
                             <FontAwesomeIcon icon="apple-alt" className="add-modal-topic-icon"/>
                             <div className="add-modal-topic-text"> OS</div>
                         </div>
+                        {/* <Select
+                            value={this.state.selectedOption}
+                            onChange={this.handleChange}
+                            options={options}
+                            className="module-select"
+                        /> */}
                         <input type="text" 
                             className="add-modal-input-half"
                             value={this.state.os}
