@@ -43,12 +43,9 @@ module.exports = {
         inline: false,
         contentBase: parentDir,
         compress: true,
-        allowedHosts: [
-            '.inno.co.th'	
-        ],
+        disableHostCheck: true,
         historyApiFallback: true,
         port: METADATA.port,
-        host: METADATA.host,
-        public: METADATA.PUBLIC,
+        host: METADATA.host
     }
 }
