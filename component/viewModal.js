@@ -51,7 +51,7 @@ class ViewModal extends Component {
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="wifi" className="view-modal-topic-icon"/>
-                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Wifi Mac-Address : {this.props.mac_wifi}</div>
+                    <div className="view-modal-topic-text" style={{marginLeft: '11px'}}> Wifi Mac-Address : {this.props.mac_wifi}</div>
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="home" className="view-modal-topic-icon"/>
@@ -63,11 +63,15 @@ class ViewModal extends Component {
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="tags" className="view-modal-topic-icon"/>
-                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Service Tag : {this.props.service_tag}</div>
+                    <div className="view-modal-topic-text" style={{marginLeft: '11px'}}> Service Tag : {this.props.service_tag}</div>
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="envelope" className="view-modal-topic-icon"/>
                     <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Email : {this.props.email}</div>
+                </div>
+                <div className="view-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="folder" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Programs : {this.props.programs.join(", ")}</div>
                 </div>
             </div>
         )

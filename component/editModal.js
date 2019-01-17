@@ -3,6 +3,8 @@ import '../css/editmodal.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import route from '../api'
+import Select from 'react-select'
+import * as constant from '../constants'
 
 class EditModal extends Component {
 
@@ -18,7 +20,9 @@ class EditModal extends Component {
         mac_lan : this.props.mac_lan,
         warranty : this.props.warranty,
         service_tag : this.props.service_tag,
-        email : this.props.email
+        email : this.props.email,
+        programs : this.props.programs,
+        loaner : this.props.loaner
     }
 
     handleChangeWithKey = (key,e) => {
@@ -49,6 +53,11 @@ class EditModal extends Component {
     }
 
     async editAsset(){
+        let assetStatus = ""
+        if(this.state.loaner == "")
+            assetStatus = "Available"
+        else
+            assetStatus = "On Loan"
         console.log(this.props.id)
         await axios.put(route+"assets/"+this.props.id,{
             name: this.state.name,
@@ -56,17 +65,48 @@ class EditModal extends Component {
             brand: this.state.brand,
             ram: this.state.ram,
             harddisk: this.state.harddisk,
-            status: this.props.status,
-            loaner: this.props.loaner,
+            status: assetStatus,
+            loaner: this.state.loaner,
             processor: this.state.processor,
             serial: this.state.serial,
             mac_wifi: this.state.mac_wifi,
             mac_lan: this.state.mac_lan,
             warranty: this.state.warranty,
             service_tag: this.state.service_tag,
+            programs: this.state.programs,
             email: this.state.email,
         }).catch(error => console.log(error))
         location.reload()
+    }
+
+    _onChange(e){
+        this.setState({loaner : e.target.value})
+    }
+
+    handleSelectOs = (selectedOption) => {
+        this.setState({os : selectedOption.value},() => {console.log(this.state.os)})
+    }
+
+    handleSelectBrand = (selectedOption) => {
+        this.setState({brand : selectedOption.value},() => {console.log(this.state.brand)})
+    }
+
+    handleSelectPrograms = (selectedOption) => {
+        let tempArr = []
+        for(let i = 0;i < selectedOption.length; i++){
+            console.log(selectedOption[i].value)
+            tempArr.push(selectedOption[i].value)
+        }
+        this.setState({label_programs: selectedOption})
+        this.setState({programs: tempArr},() => {console.log(this.state.programs)})
+    }
+
+    setLabelArray = (arr) => {
+        let tempArr = []
+        for(let i = 0;i < arr.length; i++){
+            tempArr.push({value: arr[i],label: arr[i]})
+        }
+        return tempArr
     }
 
     render() {
@@ -75,6 +115,36 @@ class EditModal extends Component {
                 <div className="edit-modal-header-wrapper">
                     <FontAwesomeIcon icon="edit" className="edit-modal-icon"/>
                     <div className="edit-modal-header">Edit Asset</div>
+                </div>
+                <div className="edit-modal-select-group">
+                    <div className="edit-modal-input-wrapper">
+                        <div className="edit-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="tags" className="edit-modal-topic-icon"/>
+                            <div className="edit-modal-topic-text"> Brand</div>
+                        </div>
+                        <Select
+                            value={{value:this.state.brand, label:this.state.brand}}
+                            onChange={this.handleSelectBrand}
+                            options={constant.brandoptions}
+                            isSearchable={true}
+                            isClearable={true}
+                            className="module-select"
+                        />
+                    </div>
+                    <div className="edit-modal-input-wrapper" style={{marginLeft: '3%'}}>
+                        <div className="edit-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="apple-alt" className="edit-modal-topic-icon"/>
+                            <div className="edit-modal-topic-text"> OS</div>
+                        </div>
+                        <Select
+                            value={{value:this.state.os, label:this.state.os}}
+                            onChange={this.handleSelectOs}
+                            options={constant.osoptions}
+                            isSearchable={true}
+                            isClearable={true}
+                            className="module-select"
+                        />
+                    </div>
                 </div>
                 <div className="edit-modal-input-group">
                     <div className="edit-modal-input-wrapper">
@@ -86,28 +156,6 @@ class EditModal extends Component {
                             className="edit-modal-input-half"
                             value={this.state.name}
                             onChange={e => this.handleChangeWithKey("name",e)}/>
-                    </div>
-                    <div className="edit-modal-input-wrapper" style={{marginLeft: '3%'}}>
-                        <div className="edit-modal-topic-wrapper">
-                            <FontAwesomeIcon icon="apple-alt" className="edit-modal-topic-icon"/>
-                            <div className="edit-modal-topic-text"> OS</div>
-                        </div>
-                        <input type="text" 
-                            className="edit-modal-input-half"
-                            value={this.state.os}
-                            onChange={e => this.handleChangeWithKey("os",e)}/>
-                    </div>
-                </div>
-                <div className="edit-modal-input-group">
-                    <div className="edit-modal-input-wrapper">
-                        <div className="edit-modal-topic-wrapper">
-                            <FontAwesomeIcon icon="tags" className="edit-modal-topic-icon"/>
-                            <div className="edit-modal-topic-text"> Brand</div>
-                        </div>
-                        <input type="text" 
-                            className="edit-modal-input-half"
-                            value={this.state.brand}
-                            onChange={e => this.handleChangeWithKey("brand",e)}/>
                     </div>
                     <div className="edit-modal-input-wrapper" style={{marginLeft: '3%'}}>
                         <div className="edit-modal-topic-wrapper">
@@ -208,6 +256,27 @@ class EditModal extends Component {
                             onChange={e => this.handleChangeWithKey("email",e)}/>
                     </div>
                 </div>
+                <div className="center-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="folder" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Programs </div>
+                </div>
+                    <Select
+                        value={this.setLabelArray(this.state.programs)}
+                        onChange={this.handleSelectPrograms}
+                        options={constant.programoptions}
+                        isSearchable={true}
+                        isClearable={true}
+                        isMulti={true}
+                        className="module-select-center"
+                    />
+                <div className="center-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="user-alt" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Holder Name </div>
+                </div>
+                <input type="text" 
+                    className="lend-modal-input"
+                    value={this.state.loaner}
+                    onChange={e => this._onChange(e)}/>
                 <button className="edit-modal-submit-button" onClick={() => this.editAsset()}>Submit</button>
             </div>
         )

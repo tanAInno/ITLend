@@ -41,7 +41,6 @@ class Table extends Component {
     async getAssets() {
         await axios.get(route+"assets/")
         .then(response => {
-            console.log(response.data.data)
             const asset_list = response.data.data.map(c => {
                 return({
                     id: c._id,
@@ -83,7 +82,6 @@ class Table extends Component {
         const avai_list = []
         const loan_list = []
             for(let i=0; i < asset_list.length;i++){
-                console.log(i)
                 if(asset_list[i].status == "Available")
                     avai_list.push(asset_list[i])
                 else if(asset_list[i].status == "On Loan")
@@ -91,8 +89,6 @@ class Table extends Component {
             }
         this.props.dispatch(setAvailableAssetList(avai_list))
         this.props.dispatch(setOnLoanAssetList(loan_list))
-        console.log(this.props.assetReducer.avai_list)
-        console.log(this.props.assetReducer.loan_list)
     }
 
     openAddModal() {
@@ -107,7 +103,6 @@ class Table extends Component {
     }
 
     render(){
-        console.log(this.props.assetReducer)
         return(
             <Tabs className="table-box-wrapper"
                 activeLinkStyle={{backgroundColor: '#249abd'}}>
@@ -156,6 +151,7 @@ class Table extends Component {
                                 ram={data.ram}
                                 brand={data.brand}
                                 harddisk={data.harddisk}
+                                programs={data.programs}
                                 processor={data.processor}
                                 serial={data.serial}
                                 mac_wifi={data.mac_wifi}
@@ -179,6 +175,7 @@ class Table extends Component {
                                 ram={data.ram}
                                 brand={data.brand}
                                 harddisk={data.harddisk}
+                                programs={data.programs}
                                 processor={data.processor}
                                 serial={data.serial}
                                 mac_wifi={data.mac_wifi}
@@ -202,6 +199,7 @@ class Table extends Component {
                                 ram={data.ram}
                                 brand={data.brand}
                                 harddisk={data.harddisk}
+                                programs={data.programs}
                                 processor={data.processor}
                                 serial={data.serial}
                                 mac_wifi={data.mac_wifi}

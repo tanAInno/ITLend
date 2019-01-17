@@ -5,6 +5,8 @@ import { setAddModal } from '../actions/modalAction'
 import { connect } from 'react-redux'
 import axios from 'axios'
 import route from '../api'
+import * as constant from '../constants'
+import Select from 'react-select'
 
 class AddModal extends Component {
 
@@ -21,7 +23,9 @@ class AddModal extends Component {
         warranty : '',
         service_tag : '',
         email : '',
-        loaner : ''
+        loaner : '',
+        programs : [],
+        label_programs : null
     }
 
     closeModal(){
@@ -60,6 +64,24 @@ class AddModal extends Component {
 
     }
 
+    handleSelectOs = (selectedOption) => {
+        this.setState({os : selectedOption},() => {console.log(this.state.os.value)})
+    }
+
+    handleSelectBrand = (selectedOption) => {
+        this.setState({brand : selectedOption},() => {console.log(this.state.brand.value)})
+    }
+
+    handleSelectPrograms = (selectedOption) => {
+        let tempArr = []
+        for(let i = 0;i < selectedOption.length; i++){
+            console.log(selectedOption[i].value)
+            tempArr.push(selectedOption[i].value)
+        }
+        this.setState({label_programs: selectedOption})
+        this.setState({programs: tempArr},() => {console.log(this.state.programs)})
+    }
+
     async addAsset(){
         let assetStatus = ""
         if(this.state.loaner == "")
@@ -68,8 +90,8 @@ class AddModal extends Component {
             assetStatus = "On Loan"
         await axios.post(route+"assets/",{
             name: this.state.name,
-            os: this.state.os,
-            brand: this.state.brand,
+            os: this.state.os.value,
+            brand: this.state.brand.value,
             ram: this.state.ram,
             harddisk: this.state.harddisk,
             processor: this.state.processor,
@@ -80,7 +102,8 @@ class AddModal extends Component {
             service_tag: this.state.service_tag,
             email: this.state.email,
             status: assetStatus,
-            loaner: this.state.loaner
+            loaner: this.state.loaner,
+            programs: this.state.programs
         }).catch(error => console.log(error))
         location.reload()
     }
@@ -92,6 +115,36 @@ class AddModal extends Component {
                     <FontAwesomeIcon icon="plus-circle" className="add-modal-icon"/>
                     <div className="add-modal-header">Add Asset</div>
                 </div>
+                <div className="add-modal-select-group">
+                    <div className="add-modal-input-wrapper">
+                        <div className="add-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="tags" className="add-modal-topic-icon"/>
+                            <div className="add-modal-topic-text"> Brand</div>
+                        </div>
+                        <Select
+                            value={this.state.brand}
+                            onChange={this.handleSelectBrand}
+                            options={constant.brandoptions}
+                            isSearchable={true}
+                            isClearable={true}
+                            className="module-select"
+                        />
+                    </div>
+                    <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
+                        <div className="add-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="apple-alt" className="add-modal-topic-icon"/>
+                            <div className="add-modal-topic-text"> OS</div>
+                        </div>
+                        <Select
+                            value={this.state.os}
+                            onChange={this.handleSelectOs}
+                            options={constant.osoptions}
+                            isSearchable={true}
+                            isClearable={true}
+                            className="module-select"
+                        />
+                    </div>
+                </div>
                 <div className="add-modal-input-group">
                     <div className="add-modal-input-wrapper">
                         <div className="add-modal-topic-wrapper">
@@ -102,34 +155,6 @@ class AddModal extends Component {
                             className="add-modal-input-half"
                             value={this.state.name}
                             onChange={e => this.handleChangeWithKey("name",e)}/>
-                    </div>
-                    <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
-                        <div className="add-modal-topic-wrapper">
-                            <FontAwesomeIcon icon="apple-alt" className="add-modal-topic-icon"/>
-                            <div className="add-modal-topic-text"> OS</div>
-                        </div>
-                        {/* <Select
-                            value={this.state.selectedOption}
-                            onChange={this.handleChange}
-                            options={options}
-                            className="module-select"
-                        /> */}
-                        <input type="text" 
-                            className="add-modal-input-half"
-                            value={this.state.os}
-                            onChange={e => this.handleChangeWithKey("os",e)}/>
-                    </div>
-                </div>
-                <div className="add-modal-input-group">
-                    <div className="add-modal-input-wrapper">
-                        <div className="add-modal-topic-wrapper">
-                            <FontAwesomeIcon icon="tags" className="add-modal-topic-icon"/>
-                            <div className="add-modal-topic-text"> Brand</div>
-                        </div>
-                        <input type="text" 
-                            className="add-modal-input-half"
-                            value={this.state.brand}
-                            onChange={e => this.handleChangeWithKey("brand",e)}/>
                     </div>
                     <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
                         <div className="add-modal-topic-wrapper">
@@ -230,9 +255,22 @@ class AddModal extends Component {
                             onChange={e => this.handleChangeWithKey("email",e)}/>
                     </div>
                 </div>
-                <div className="lend-modal-topic-wrapper">
+                <div className="center-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="folder" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Programs </div>
+                </div>
+                    <Select
+                        value={this.state.label_programs}
+                        onChange={this.handleSelectPrograms}
+                        options={constant.programoptions}
+                        isSearchable={true}
+                        isClearable={true}
+                        isMulti={true}
+                        className="module-select-center"
+                    />
+                <div className="center-modal-topic-wrapper">
                     <FontAwesomeIcon icon="user-alt" className="view-modal-topic-icon"/>
-                    <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Loaner Name </div>
+                    <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Holder Name </div>
                 </div>
                 <input type="text" 
                     className="lend-modal-input"
