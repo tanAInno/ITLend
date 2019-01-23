@@ -1,6 +1,7 @@
 import React, {Component} from 'react'
 import '../css/viewmodal.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import ProgramTable from '../containers/ProgramTable'
 
 class ViewModal extends Component {
 
@@ -28,6 +29,14 @@ class ViewModal extends Component {
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="user-alt" className="view-modal-topic-icon"/>
                     <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Loaner : {this.props.loaner}</div>
+                </div>
+                <div className="view-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="envelope" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Email : {this.props.email}</div>
+                </div>
+                <div className="view-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="building" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Department : {this.props.department}</div>
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="apple-alt" className="view-modal-topic-icon"/>
@@ -62,17 +71,18 @@ class ViewModal extends Component {
                     <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Warranty : {this.props.warranty}</div>
                 </div>
                 <div className="view-modal-topic-wrapper">
-                    <FontAwesomeIcon icon="tags" className="view-modal-topic-icon"/>
+                    <FontAwesomeIcon icon="wrench" className="view-modal-topic-icon"/>
                     <div className="view-modal-topic-text" style={{marginLeft: '11px'}}> Service Tag : {this.props.service_tag}</div>
                 </div>
-                <div className="view-modal-topic-wrapper">
-                    <FontAwesomeIcon icon="envelope" className="view-modal-topic-icon"/>
-                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Email : {this.props.email}</div>
-                </div>
-                <div className="view-modal-topic-wrapper">
-                    <FontAwesomeIcon icon="folder" className="view-modal-topic-icon"/>
-                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Programs : {this.props.programs.join(", ")}</div>
-                </div>
+                <div className="view-modal-program-wrapper">
+                    <div className="view-modal-program-header">
+                        <FontAwesomeIcon icon="folder" className="view-modal-program-icon"/>
+                        <div className="view-modal-program-header-text" style={{marginLeft: '13px'}}> Programs</div>
+                    </div>
+                    <ProgramTable
+                        programs={this.props.programs}
+                    />
+                </div>  
             </div>
         )
     }

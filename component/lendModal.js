@@ -3,15 +3,26 @@ import '../css/lendmodal.css'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import axios from 'axios'
 import route from '../api'
+import ProgramTable from '../containers/ProgramTable'
 
 class LendModal extends Component {
 
     state = {
-        loaner: ''
+        loaner: '',
+        email: '',
+        department: ''
     }
 
-    _onChange(e){
+    _onChangeLoaner(e){
         this.setState({loaner : e.target.value})
+    }
+
+    _onChangeEmail(e){
+        this.setState({email : e.target.value})
+    }
+
+    _onChangeDepartment(e){
+        this.setState({department : e.target.value})
     }
 
     async lendAsset(){
@@ -28,7 +39,11 @@ class LendModal extends Component {
                 mac_lan: this.props.mac_lan,
                 warranty: this.props.warranty,
                 status: "On Loan",
-                loaner: this.state.loaner
+                loaner: this.state.loaner,
+                service_tag: this.props.service_tag,
+                email: this.state.email,
+                department: this.state.department,
+                programs: this.props.programs
             }).catch(error => console.log(error))
         }
         location.reload()
@@ -81,14 +96,49 @@ class LendModal extends Component {
                     <FontAwesomeIcon icon="folder" className="view-modal-topic-icon" style={{marginLeft: '10px'}}/>
                     <div className="view-modal-topic-text" style={{marginLeft: '15px'}}> Programs : </div>
                 </div>
-                <div className="lend-modal-topic-wrapper">
-                    <FontAwesomeIcon icon="user-alt" className="view-modal-topic-icon"/>
-                    <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Loaner Name </div>
+                <div className="view-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="wrench" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '11px'}}> Service Tag : {this.props.service_tag}</div>
                 </div>
-                <input type="text" 
-                    className="lend-modal-input"
-                    value={this.state.loaner}
-                    onChange={e => this._onChange(e)}/>
+                <div className="view-modal-program-wrapper">
+                    <div className="view-modal-program-header">
+                        <FontAwesomeIcon icon="folder" className="view-modal-program-icon"/>
+                        <div className="view-modal-program-header-text" style={{marginLeft: '13px'}}> Programs</div>
+                    </div>
+                    <ProgramTable
+                        programs={this.props.programs}
+                    />
+                </div>  
+                <div className="user-modal-wrapper" style={{marginTop: '5px'}}>
+                    <div className="user-header">
+                        <FontAwesomeIcon icon="user-alt" className="user-modal-icon"/>
+                        <div className="user-modal-header">Holder Detail</div>
+                    </div>
+                    <div className="user-modal-topic-wrapper">
+                        <FontAwesomeIcon icon="user-alt" className="view-modal-topic-icon"/>
+                        <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Holder Name </div>
+                    </div>
+                    <input type="text" 
+                        className="user-modal-input"
+                        value={this.state.loaner}
+                        onChange={e => this._onChangeLoaner(e)}/>
+                    <div className="user-modal-topic-wrapper">
+                        <FontAwesomeIcon icon="envelope" className="view-modal-topic-icon"/>
+                        <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Email </div>
+                    </div>
+                    <input type="text" 
+                        className="user-modal-input"
+                        value={this.state.email}
+                        onChange={e => this._onChangeEmail(e)}/>
+                    <div className="user-modal-topic-wrapper">
+                        <FontAwesomeIcon icon="building" className="view-modal-topic-icon"/>
+                        <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Department </div>
+                    </div>
+                    <input type="text" 
+                        className="user-modal-input"
+                        value={this.state.department}
+                        onChange={e => this._onChangeDepartment(e)}/>
+                </div>
                 <button className="lend-modal-submit-button" onClick={() => this.lendAsset()}>Submit</button>
             </div>
         )

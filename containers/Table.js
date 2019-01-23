@@ -58,7 +58,8 @@ class Table extends Component {
                     mac_lan: c.mac_lan,
                     warranty: c.warranty,
                     service_tag: c.service_tag,
-                    email: c.email
+                    email: c.email,
+                    department: c.department
                 })
             })
             asset_list.sort(function(a,b){
@@ -159,6 +160,7 @@ class Table extends Component {
                                 warranty={data.warranty}
                                 service_tag={data.service_tag}
                                 email={data.email}
+                                department={data.department}
                             />
                         )
                     })}
@@ -183,6 +185,7 @@ class Table extends Component {
                                 warranty={data.warranty}
                                 service_tag={data.service_tag}
                                 email={data.email}
+                                department={data.department}
                             />
                         )
                     })}
@@ -207,6 +210,7 @@ class Table extends Component {
                                 warranty={data.warranty}
                                 service_tag={data.service_tag}
                                 email={data.email}
+                                department={data.department}
                             />
                         )
                     })}

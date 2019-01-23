@@ -309,3 +309,40 @@ input[type=checkbox] {
     float: right;
     margin-top: 5px;
 }
+
+.program-card-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    min-height: 500px;
+    background-color: #D3D3D3;
+}
+
+.program-card-wrapper {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    min-height: 25px;
+    border-bottom: 1px solid black;
+    align-items: center;
+}
+
+.program-card-text {
+    margin-left: 2%;
+    font-size: 16px;
+    width: 91.5%;
+}
+
+.program-card-avai-green {
+    width: 5%;
+    height: 18px;
+    border: 1px solid black;
+    background-color: #32CD32;		
+}
+
+.program-card-avai-red {
+    width: 5%;
+    height: 18px;
+    border: 1px solid black;
+    background-color: #B22222;		
+}

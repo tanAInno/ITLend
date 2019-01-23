@@ -24,6 +24,7 @@ class AddModal extends Component {
         service_tag : '',
         email : '',
         loaner : '',
+        department : '',
         programs : [],
         label_programs : null
     }
@@ -39,37 +40,43 @@ class AddModal extends Component {
     handleChangeWithKey = (key,e) => {
         if(key == "name")
             this.setState({name : e.target.value})
-        if(key == "os")
-            this.setState({os : e.target.value})
-        if(key == "brand")
-            this.setState({brand : e.target.value})
-        if(key == "ram")
-            this.setState({ram : e.target.value})
-        if(key == "harddisk")
-            this.setState({harddisk : e.target.value})
-        if(key == "processor")
-            this.setState({processor : e.target.value})
         if(key == "serial")
             this.setState({serial : e.target.value})
         if(key == "mac_wifi")
             this.setState({mac_wifi : e.target.value})
         if(key == "mac_lan")
             this.setState({mac_lan : e.target.value})
-        if(key == "warranty")
-            this.setState({warranty : e.target.value})
         if(key == "service_tag")
             this.setState({service_tag : e.target.value})
         if(key == "email")
             this.setState({email : e.target.value})
+        if(key == "department")
+            this.setState({department : e.target.value})
 
     }
 
     handleSelectOs = (selectedOption) => {
-        this.setState({os : selectedOption},() => {console.log(this.state.os.value)})
+        this.setState({os : selectedOption})
+    }
+
+    handleSelectProcessor = (selectedOption) => {
+        this.setState({processor : selectedOption})
+    }
+
+    handleSelectWarranty = (selectedOption) => {
+        this.setState({warranty : selectedOption})
+    }
+
+    handleSelectRam = (selectedOption) => {
+        this.setState({ram : selectedOption})
+    }
+
+    handleSelectHarddisk = (selectedOption) => {
+        this.setState({harddisk : selectedOption})
     }
 
     handleSelectBrand = (selectedOption) => {
-        this.setState({brand : selectedOption},() => {console.log(this.state.brand.value)})
+        this.setState({brand : selectedOption})
     }
 
     handleSelectPrograms = (selectedOption) => {
@@ -79,7 +86,15 @@ class AddModal extends Component {
             tempArr.push(selectedOption[i].value)
         }
         this.setState({label_programs: selectedOption})
-        this.setState({programs: tempArr},() => {console.log(this.state.programs)})
+        this.setState({programs: tempArr})
+    }
+
+    selectAll() {
+        this.handleSelectPrograms(constant.programoptions)
+    }
+
+    clearAll() {
+        this.handleSelectPrograms([])
     }
 
     async addAsset(){
@@ -94,13 +109,14 @@ class AddModal extends Component {
             brand: this.state.brand.value,
             ram: this.state.ram,
             harddisk: this.state.harddisk,
-            processor: this.state.processor,
+            processor: this.state.processor.value,
             serial: this.state.serial,
             mac_wifi: this.state.mac_wifi,
             mac_lan: this.state.mac_lan,
             warranty: this.state.warranty,
             service_tag: this.state.service_tag,
             email: this.state.email,
+            department: this.state.department,
             status: assetStatus,
             loaner: this.state.loaner,
             programs: this.state.programs
@@ -114,6 +130,18 @@ class AddModal extends Component {
                 <div className="add-modal-header-wrapper">
                     <FontAwesomeIcon icon="plus-circle" className="add-modal-icon"/>
                     <div className="add-modal-header">Add Asset</div>
+                </div>
+                <div className="add-modal-input-group-name">
+                    <div className="add-modal-input-wrapper">
+                        <div className="add-modal-topic-wrapper">
+                            <FontAwesomeIcon icon="laptop" className="add-modal-topic-icon"/>
+                            <div className="add-modal-topic-text"> Asset Name</div>
+                        </div>
+                        <input type="text" 
+                            className="add-modal-input"
+                            value={this.state.name}
+                            onChange={e => this.handleChangeWithKey("name",e)}/>
+                    </div>
                 </div>
                 <div className="add-modal-select-group">
                     <div className="add-modal-input-wrapper">
@@ -145,48 +173,64 @@ class AddModal extends Component {
                         />
                     </div>
                 </div>
-                <div className="add-modal-input-group">
+                <div className="add-modal-select-group">
                     <div className="add-modal-input-wrapper">
                         <div className="add-modal-topic-wrapper">
-                            <FontAwesomeIcon icon="laptop" className="add-modal-topic-icon"/>
-                            <div className="add-modal-topic-text"> Asset Name</div>
+                            <FontAwesomeIcon icon="shield-alt" className="add-modal-topic-icon"/>
+                            <div className="add-modal-topic-text"> Warranty</div>
                         </div>
-                        <input type="text" 
-                            className="add-modal-input-half"
-                            value={this.state.name}
-                            onChange={e => this.handleChangeWithKey("name",e)}/>
+                        <Select
+                            value={this.state.warranty}
+                            onChange={this.handleSelectWarranty}
+                            options={constant.warrantyoptions}
+                            isSearchable={true}
+                            isClearable={true}
+                            className="module-select"
+                        />
                     </div>
                     <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
                         <div className="add-modal-topic-wrapper">
                             <FontAwesomeIcon icon="microchip" className="add-modal-topic-icon"/>
                             <div className="add-modal-topic-text"> Processor</div>
                         </div>
-                        <input type="text" 
-                            className="add-modal-input-half"
+                        <Select
                             value={this.state.processor}
-                            onChange={e => this.handleChangeWithKey("processor",e)}/>
+                            onChange={this.handleSelectProcessor}
+                            options={constant.processoroptions}
+                            isSearchable={true}
+                            isClearable={true}
+                            className="module-select-processor"
+                        />
                     </div>
                 </div>
-                <div className="add-modal-input-group">
+                <div className="add-modal-select-group">
                     <div className="add-modal-input-wrapper">
                         <div className="add-modal-topic-wrapper">
                             <FontAwesomeIcon icon="memory" className="add-modal-topic-icon"/>
                             <div className="add-modal-topic-text"> Ram</div>
                         </div>
-                        <input type="text" 
-                            className="add-modal-input-half"
+                        <Select
                             value={this.state.ram}
-                            onChange={e => this.handleChangeWithKey("ram",e)}/>
+                            onChange={this.handleSelectRam}
+                            options={constant.ramoptions}
+                            isSearchable={true}
+                            isClearable={true}
+                            className="module-select"
+                        />
                     </div>
                     <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
                         <div className="add-modal-topic-wrapper">
                             <FontAwesomeIcon icon="hdd" className="add-modal-topic-icon"/>
                             <div className="add-modal-topic-text"> Harddisk</div>
                         </div>
-                        <input type="text" 
-                            className="add-modal-input-half"
+                        <Select
                             value={this.state.harddisk}
-                            onChange={e => this.handleChangeWithKey("harddisk",e)}/>
+                            onChange={this.handleSelectHarddisk}
+                            options={constant.harddiskoptions}
+                            isSearchable={true}
+                            isClearable={true}
+                            className="module-select"
+                        />
                     </div>
                 </div>
                 <div className="add-modal-input-group">
@@ -224,35 +268,13 @@ class AddModal extends Component {
                     </div>
                     <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
                         <div className="add-modal-topic-wrapper">
-                            <FontAwesomeIcon icon="shield-alt" className="add-modal-topic-icon"/>
-                            <div className="add-modal-topic-text"> Warranty</div>
-                        </div>
-                        <input type="text" 
-                            className="add-modal-input-half"
-                            value={this.state.warranty}
-                            onChange={e => this.handleChangeWithKey("warranty",e)}/>
-                    </div>
-                </div>
-                <div className="add-modal-input-group">
-                    <div className="add-modal-input-wrapper">
-                        <div className="add-modal-topic-wrapper">
-                            <FontAwesomeIcon icon="tags" className="add-modal-topic-icon"/>
+                            <FontAwesomeIcon icon="wrench" className="add-modal-topic-icon"/>
                             <div className="add-modal-topic-text"> Service Tag</div>
                         </div>
                         <input type="text" 
                             className="add-modal-input-half"
                             value={this.state.service_tag}
                             onChange={e => this.handleChangeWithKey("service_tag",e)}/>
-                    </div>
-                    <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
-                        <div className="add-modal-topic-wrapper">
-                            <FontAwesomeIcon icon="envelope" className="add-modal-topic-icon"/>
-                            <div className="add-modal-topic-text"> Email</div>
-                        </div>
-                        <input type="text" 
-                            className="add-modal-input-half"
-                            value={this.state.email}
-                            onChange={e => this.handleChangeWithKey("email",e)}/>
                     </div>
                 </div>
                 <div className="center-modal-topic-wrapper">
@@ -267,15 +289,41 @@ class AddModal extends Component {
                         isClearable={true}
                         isMulti={true}
                         className="module-select-center"
-                    />
-                <div className="center-modal-topic-wrapper">
-                    <FontAwesomeIcon icon="user-alt" className="view-modal-topic-icon"/>
-                    <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Holder Name </div>
+                        />
+                    <div className="select-button-group">
+                        <button className="all-button" onClick={() => this.selectAll()}>Select All</button>
+                        <button className="clear-button" onClick={() => this.clearAll()}>Clear All</button>
+                    </div>
+                <div className="user-modal-wrapper">
+                    <div className="user-header">
+                        <FontAwesomeIcon icon="user-alt" className="user-modal-icon"/>
+                        <div className="user-modal-header">Holder Detail</div>
+                    </div>
+                    <div className="user-modal-topic-wrapper">
+                        <FontAwesomeIcon icon="user-alt" className="view-modal-topic-icon"/>
+                        <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Holder Name </div>
+                    </div>
+                    <input type="text" 
+                        className="user-modal-input"
+                        value={this.state.loaner}
+                        onChange={e => this._onChange(e)}/>
+                    <div className="user-modal-topic-wrapper">
+                        <FontAwesomeIcon icon="envelope" className="view-modal-topic-icon"/>
+                        <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Email </div>
+                    </div>
+                    <input type="text" 
+                        className="user-modal-input"
+                        value={this.state.email}
+                        onChange={e => this.handleChangeWithKey("email",e)}/>
+                    <div className="user-modal-topic-wrapper">
+                        <FontAwesomeIcon icon="building" className="view-modal-topic-icon"/>
+                        <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Department </div>
+                    </div>
+                    <input type="text" 
+                        className="user-modal-input"
+                        value={this.state.department}
+                        onChange={e => this.handleChangeWithKey("department",e)}/>
                 </div>
-                <input type="text" 
-                    className="lend-modal-input"
-                    value={this.state.loaner}
-                    onChange={e => this._onChange(e)}/>
                 <div className="add-modal-button-group">
                     <button className="add-modal-add-button" onClick={() => this.addAsset()}>Add</button>
                     <button className="add-modal-cancel-button" onClick={() => this.closeModal()}>Cancel</button>

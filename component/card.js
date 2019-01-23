@@ -128,7 +128,8 @@ class Card extends Component {
             mac_lan: this.props.mac_lan,
             warranty: this.props.warranty,
             service_tag: this.props.service_tag,
-            email: this.props.email,
+            email: "",
+            department: "",
             programs: this.props.programs
         }).catch(error => console.log(error))
         location.reload()
@@ -194,6 +195,7 @@ class Card extends Component {
                                     service_tag={this.props.service_tag}
                                     email={this.props.email}
                                     programs={this.props.programs}
+                                    department={this.props.department}
                                 />
                         </Modal>
                         <Modal
@@ -241,6 +243,7 @@ class Card extends Component {
                             service_tag={this.props.service_tag}
                             email={this.props.email}
                             programs={this.props.programs}
+                            department={this.props.department}
                         />
                     </Modal>
                     <button className="card-button" title="Edit this asset" onClick={this.openEditModal}>
@@ -269,6 +272,7 @@ class Card extends Component {
                             email={this.props.email}
                             programs={this.props.programs}
                             loaner={this.props.loaner}
+                            department={this.props.department}
                         />
                     </Modal>
                     <button className="card-button" title="Delete this asset" onClick={this.openDeleteModal}>
