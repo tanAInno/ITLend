@@ -51,6 +51,8 @@ class EditModal extends Component {
             this.setState({service_tag : e.target.value})
         if(key == "email")
             this.setState({email : e.target.value})
+        if(key == "department")
+            this.setState({department : e.target.value})
     }
 
     async editAsset(){
@@ -323,7 +325,7 @@ class EditModal extends Component {
                     <input type="text" 
                         className="user-modal-input"
                         value={this.state.email}
-                        onChange={e => this.handleChangeWithKey(e,"email")}/>
+                        onChange={e => this.handleChangeWithKey("email",e)}/>
                     <div className="user-modal-topic-wrapper">
                         <FontAwesomeIcon icon="building" className="view-modal-topic-icon"/>
                         <div className="view-modal-topic-text" style={{marginLeft: '16px'}}> Department </div>
@@ -331,7 +333,7 @@ class EditModal extends Component {
                     <input type="text" 
                         className="user-modal-input"
                         value={this.state.department}
-                        onChange={e => this.handleChangeWithKey(e,"department")}/>
+                        onChange={e => this.handleChangeWithKey("department",e)}/>
                 </div>
                 <button className="edit-modal-submit-button" onClick={() => this.editAsset()}>Submit</button>
             </div>
