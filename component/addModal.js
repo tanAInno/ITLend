@@ -15,7 +15,7 @@ class AddModal extends Component {
         os : '',
         brand : '',
         ram : '',
-        harddisk : '',
+        harddisk : [],
         processor : '',
         serial : '',
         mac_wifi : '',
@@ -26,7 +26,8 @@ class AddModal extends Component {
         loaner : '',
         department : '',
         programs : [],
-        label_programs : null
+        label_programs : null,
+        label_harddisk : null
     }
 
     closeModal(){
@@ -72,7 +73,12 @@ class AddModal extends Component {
     }
 
     handleSelectHarddisk = (selectedOption) => {
-        this.setState({harddisk : selectedOption})
+        let tempArr = []
+        for(let i = 0;i < selectedOption.length; i++){
+            tempArr.push(selectedOption[i].value)
+        }
+        this.setState({label_harddisk: selectedOption})
+        this.setState({harddisk: tempArr})
     }
 
     handleSelectBrand = (selectedOption) => {
@@ -204,7 +210,7 @@ class AddModal extends Component {
                     </div>
                 </div>
                 <div className="add-modal-select-group">
-                    <div className="add-modal-input-wrapper">
+                    <div className="add-modal-input-wrapper" style={{width: '30%'}}>
                         <div className="add-modal-topic-wrapper">
                             <FontAwesomeIcon icon="memory" className="add-modal-topic-icon"/>
                             <div className="add-modal-topic-text"> Ram</div>
@@ -218,18 +224,19 @@ class AddModal extends Component {
                             className="module-select"
                         />
                     </div>
-                    <div className="add-modal-input-wrapper" style={{marginLeft: '3%'}}>
+                    <div className="add-modal-input-wrapper" style={{width: '67%', marginLeft: '2%'}}>
                         <div className="add-modal-topic-wrapper">
                             <FontAwesomeIcon icon="hdd" className="add-modal-topic-icon"/>
                             <div className="add-modal-topic-text"> Harddisk</div>
                         </div>
                         <Select
-                            value={this.state.harddisk}
+                            value={this.state.label_harddisk}
                             onChange={this.handleSelectHarddisk}
                             options={constant.harddiskoptions}
                             isSearchable={true}
                             isClearable={true}
-                            className="module-select"
+                            isMulti={true}
+                            className="module-select-hdd"
                         />
                     </div>
                 </div>

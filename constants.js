@@ -66,16 +66,26 @@ export const processoroptions = [
 ]
 
 export const harddiskoptions = [
-    { value: '256GB', label: '256GB'},
-    { value: '512GB', label: '512GB'},
-    { value: '1TB', label: '1TB'},
-    { value: '', label: 'None'}
+    { value: 'HDD 250GB', label: 'HDD 250GB'},
+    { value: 'HDD 320GB', label: 'HDD 320GB'},
+    { value: 'HDD 500GB', label: 'HDD 500GB'},
+    { value: 'HDD 750GB', label: 'HDD 750GB'},
+    { value: 'HDD 1TB', label: 'HDD 1TB'},
+    { value: 'SSD 120GB', label: 'SSD 120GB'},
+    { value: 'SSD 128GB', label: 'SSD 128GB'},
+    { value: 'SSD 240GB', label: 'SSD 240GB'},
+    { value: 'SSD 256GB', label: 'SSD 256GB'},
+    { value: 'SSD 480GB', label: 'SSD 480GB'},
+    { value: 'SSD 512GB', label: 'SSD 512GB'},
+    { value: 'SSD 1TB', label: 'SSD 1TB'},
 ]
 
 export const ramoptions = [
     { value: '2GB', label: '2GB'},
     { value: '4GB', label: '4GB'},
     { value: '8GB', label: '8GB'},
+    { value: '16GB', label: '16GB'},
+    { value: '32GB', label: '32GB'},
     { value: '', label: 'None'}
 ]
 

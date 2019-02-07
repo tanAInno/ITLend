@@ -102,7 +102,12 @@ class EditModal extends Component {
     }
 
     handleSelectHarddisk = (selectedOption) => {
-        this.setState({harddisk : selectedOption.value})
+        let tempArr = []
+        for(let i = 0;i < selectedOption.length; i++){
+            tempArr.push(selectedOption[i].value)
+        }
+        this.setState({label_harddisk: selectedOption})
+        this.setState({harddisk: tempArr})
     }
 
     handleSelectBrand = (selectedOption) => {
@@ -207,7 +212,7 @@ class EditModal extends Component {
                     </div>
                 </div>
                 <div className="edit-modal-select-group">
-                    <div className="edit-modal-input-wrapper">
+                    <div className="edit-modal-input-wrapper" style={{width: '30%'}}>
                         <div className="edit-modal-topic-wrapper">
                             <FontAwesomeIcon icon="memory" className="edit-modal-topic-icon"/>
                             <div className="edit-modal-topic-text"> Ram</div>
@@ -221,18 +226,19 @@ class EditModal extends Component {
                             className="module-select"
                         />
                     </div>
-                    <div className="edit-modal-input-wrapper" style={{marginLeft: '3%'}}>
+                    <div className="edit-modal-input-wrapper" style={{width: '67%', marginLeft: '2%'}}>
                         <div className="edit-modal-topic-wrapper">
                             <FontAwesomeIcon icon="hdd" className="edit-modal-topic-icon"/>
                             <div className="edit-modal-topic-text"> Harddisk</div>
                         </div>
                         <Select
-                            value={{value: this.state.harddisk, label: this.state.harddisk}}
+                            value={this.setLabelArray(this.state.harddisk)}
                             onChange={this.handleSelectHarddisk}
                             options={constant.harddiskoptions}
                             isSearchable={true}
                             isClearable={true}
-                            className="module-select"
+                            isMulti={true}
+                            className="module-select-hdd"
                         />
                     </div>
                 </div>
