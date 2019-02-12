@@ -39,8 +39,7 @@ export const programoptions = [
     { value: 'SmartBIZ', label: 'SmartBIZ'},
     { value: 'Team Viewer', label: 'Team Viewer'},
     { value: 'VLC', label: 'VLC'},
-    { value: 'Wallpaper inno', label: 'Wallpaper inno'},
-    { value: 'Win Audit', label: 'Win Audit'}
+    { value: 'Wallpaper inno', label: 'Wallpaper inno'}
 ]
 
 export const processoroptions = [

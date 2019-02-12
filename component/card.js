@@ -154,8 +154,8 @@ class Card extends Component {
                                 {this.props.status}
                             </div>
                         }
-                        <div className="asset-os">
-                            {this.props.os}
+                        <div className="asset-department">
+                            {this.props.department}
                         </div>
                         <div className="asset-loaner">
                         {this.props.loaner.length <= 0 &&

@@ -136,7 +136,7 @@ class Table extends Component {
                         <FontAwesomeIcon icon="desktop" className="table-header-icon"/>
                         <div className="table-header-name">Name</div>
                         <div className="table-header-status">Status</div>
-                        <div className="table-header-os">OS</div>
+                        <div className="table-header-os">Department</div>
                         <div className="table-header-loaner">Loaner</div>
                     </div>
                 </div>
