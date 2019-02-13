@@ -54,11 +54,11 @@ class LendModal extends Component {
             <div className="lend-modal-container">
                 <div className="lend-modal-header-wrapper">
                     <FontAwesomeIcon icon="handshake" className="lend-modal-icon"/>
-                    <div className="lend-modal-header">Lend Asset</div>
+                    <div className="lend-modal-header">Lend Device</div>
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="laptop" className="view-modal-topic-icon"/>
-                    <div className="view-modal-topic-text"> Asset Name : {this.props.name}</div>
+                    <div className="view-modal-topic-text"> Device Name : {this.props.name}</div>
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="apple-alt" className="view-modal-topic-icon"/>

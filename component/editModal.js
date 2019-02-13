@@ -139,13 +139,13 @@ class EditModal extends Component {
             <div className="edit-modal-container">
                 <div className="edit-modal-header-wrapper">
                     <FontAwesomeIcon icon="edit" className="edit-modal-icon"/>
-                    <div className="edit-modal-header">Edit Asset</div>
+                    <div className="edit-modal-header">Edit Device</div>
                 </div>
                 <div className="edit-modal-input-group-name">
                     <div className="edit-modal-input-wrapper">
                         <div className="edit-modal-topic-wrapper">
                             <FontAwesomeIcon icon="laptop" className="edit-modal-topic-icon"/>
-                            <div className="edit-modal-topic-text"> Asset Name</div>
+                            <div className="edit-modal-topic-text"> Device Name</div>
                         </div>
                         <input type="text" 
                             className="edit-modal-input"

@@ -43,7 +43,7 @@ class SearchBox extends Component {
                 <div className="margin-provider"/>
                 <div className="search-input-wrapper">
                     <FontAwesomeIcon icon="laptop" className="search-topic-icon"/>
-                    <div className="search-topic-header"> Asset Name</div>
+                    <div className="search-topic-header"> Device Name</div>
                 </div>
                 <input type="text" 
                     className="search-input"

@@ -135,13 +135,13 @@ class AddModal extends Component {
             <div className="add-modal-container">
                 <div className="add-modal-header-wrapper">
                     <FontAwesomeIcon icon="plus-circle" className="add-modal-icon"/>
-                    <div className="add-modal-header">Add Asset</div>
+                    <div className="add-modal-header">Add Device</div>
                 </div>
                 <div className="add-modal-input-group-name">
                     <div className="add-modal-input-wrapper">
                         <div className="add-modal-topic-wrapper">
                             <FontAwesomeIcon icon="laptop" className="add-modal-topic-icon"/>
-                            <div className="add-modal-topic-text"> Asset Name</div>
+                            <div className="add-modal-topic-text"> Device Name</div>
                         </div>
                         <input type="text" 
                             className="add-modal-input"

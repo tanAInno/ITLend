@@ -10,11 +10,11 @@ class ViewModal extends Component {
             <div className="view-modal-container">
                 <div className="view-modal-header-wrapper">
                     <FontAwesomeIcon icon="eye" className="view-modal-icon"/>
-                    <div className="view-modal-header">View Asset</div>
+                    <div className="view-modal-header">View Device</div>
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="laptop" className="view-modal-topic-icon"/>
-                    <div className="view-modal-topic-text"> Asset Name : {this.props.name}</div>
+                    <div className="view-modal-topic-text"> Device Name : {this.props.name}</div>
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="signature" className="view-modal-topic-icon"/>
@@ -40,7 +40,11 @@ class ViewModal extends Component {
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="apple-alt" className="view-modal-topic-icon"/>
-                    <div className="view-modal-topic-text" style={{marginLeft: '17px'}}> OS : {this.props.os} ({this.props.serial})</div>
+                    <div className="view-modal-topic-text" style={{marginLeft: '17px'}}> OS : {this.props.os}</div>
+                </div>
+                <div className="view-modal-topic-wrapper">
+                    <FontAwesomeIcon icon="barcode" className="view-modal-topic-icon"/>
+                    <div className="view-modal-topic-text" style={{marginLeft: '13px'}}> Serial : {this.props.serial}</div>
                 </div>
                 <div className="view-modal-topic-wrapper">
                     <FontAwesomeIcon icon="tags" className="view-modal-topic-icon"/>
