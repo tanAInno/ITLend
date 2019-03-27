@@ -127,11 +127,20 @@ class EditModal extends Component {
     }
 
     setLabelArray = (arr) => {
+        console.log(arr)
         let tempArr = []
         for(let i = 0;i < arr.length; i++){
             tempArr.push({value: arr[i],label: arr[i]})
         }
         return tempArr
+    }
+
+    selectAll() {
+        this.handleSelectPrograms(constant.programoptions)
+    }
+
+    clearAll() {
+        this.handleSelectPrograms([])
     }
 
     render() {
