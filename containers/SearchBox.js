@@ -8,15 +8,15 @@ class SearchBox extends Component {
 
     state = {
         name: '',
-        os: '',
+        department: '',
         loaner: ''
     }
 
     onInputChange(key,e){
         if(key == "name")
             this.setState({name : e.target.value},() => this.onChangeSearch())
-        if(key == "os")
-            this.setState({os : e.target.value},() => this.onChangeSearch())
+        if(key == "department")
+            this.setState({department : e.target.value},() => this.onChangeSearch())
         if(key == "loaner")
             this.setState({loaner : e.target.value},() => this.onChangeSearch())
     }
@@ -26,7 +26,7 @@ class SearchBox extends Component {
         const asset_list = this.props.assetReducer.perm_asset_list;
         for(let i=0; i < asset_list.length; i++){
             if(asset_list[i].name.toLowerCase().match(this.state.name.toLowerCase()) || this.state.name.length <= 0)
-            if(asset_list[i].os.toLowerCase().match(this.state.os.toLowerCase()) || this.state.os.length <= 0)
+            if(asset_list[i].department.toLowerCase().match(this.state.department.toLowerCase()) || this.state.department.length <= 0)
             if(asset_list[i].loaner.toLowerCase().match(this.state.loaner.toLowerCase()) || this.state.loaner.length <= 0)
                 filter_list.push(asset_list[i])
         }
@@ -50,13 +50,13 @@ class SearchBox extends Component {
                     value={this.state.name}
                     onChange={e => this.onInputChange("name",e)}/>
                 <div className="search-input-wrapper">
-                    <FontAwesomeIcon icon="apple-alt" style={{fontSize: '24px'}}className="search-topic-icon"/>
-                    <div className="search-topic-header" style={{marginTop: '5px'}}> OS</div>
+                    <FontAwesomeIcon icon="building" style={{fontSize: '24px'}}className="search-topic-icon"/>
+                    <div className="search-topic-header" style={{marginTop: '5px'}}> Department</div>
                 </div>
                 <input type="text" 
                     className="search-input"
-                    value={this.state.os}
-                    onChange={e => this.onInputChange("os",e)}/>
+                    value={this.state.department}
+                    onChange={e => this.onInputChange("department",e)}/>
                 <div className="search-input-wrapper">
                     <FontAwesomeIcon icon="user-alt" className="search-topic-icon"/>
                     <div className="search-topic-header"> Loaner</div>
